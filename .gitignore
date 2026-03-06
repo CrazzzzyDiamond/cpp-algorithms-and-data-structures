@@ -1,0 +1,16 @@
+# executables
+test
+testOC
+a.out
+
+# object files
+*.o
+
+# build folders
+build/
+
+# macOS
+.DS_Store
+
+# Visual Studio Code
+.vscode/
