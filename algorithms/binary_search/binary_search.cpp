@@ -12,11 +12,11 @@ int binarySearch(const std::vector<int>& arr, int target) {
     }
 
     if (target > arr[mid]) {
-      left = arr[mid] + 1;
+      left = mid + 1;
     }
 
     if (target < arr[mid]) {
-      right = arr[mid] - 1;
+      right = mid - 1;
     }
   }
 
