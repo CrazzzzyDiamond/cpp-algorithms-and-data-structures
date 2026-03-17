@@ -2,4 +2,4 @@
 
 #include <vector>
 
-int prefix_sum(const std::vector<int>& arr, int left, int right);
+int prefix_sum(const std::vector<int> &arr, int left, int right);

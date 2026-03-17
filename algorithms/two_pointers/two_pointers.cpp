@@ -1,19 +1,25 @@
 #include "two_pointers.h"
 
-std::pair<int, int> two_pointers(const std::vector<int>& arr, int target) {
+std::pair<int, int> two_pointers(const std::vector<int> &arr, int target)
+{
   int left = 0;
   int right = arr.size() - 1;
 
-  while (left < right) {
+  while (left < right)
+  {
     int sum = arr[left] + arr[right];
 
-    if (sum == target) {
+    if (sum == target)
+    {
       return std::pair{left, right};
     }
 
-    if (sum < target) {
+    if (sum < target)
+    {
       left++;
-    } else {
+    }
+    else
+    {
       right--;
     }
   }
