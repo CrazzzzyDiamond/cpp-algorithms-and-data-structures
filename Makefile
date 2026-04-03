@@ -12,6 +12,10 @@ RED    = \033[31m
 # Find implementation in algorithms/ or data_structures/
 impl = $(or $(wildcard algorithms/$(1)/$(1).cpp),$(wildcard data_structures/$(1)/$(1).cpp))
 
+# Extra source files for algorithms that depend on data structures
+EXTRA_SRCS_dfs := data_structures/graph/graph.cpp
+EXTRA_SRCS_bfs := data_structures/graph/graph.cpp
+
 # Auto-discover all test directories
 TEST_DIRS := $(patsubst tests/%/,%,$(sort $(dir $(wildcard tests/*/*))))
 TARGETS   := $(addprefix $(BUILD)/,$(TEST_DIRS))
@@ -22,7 +26,7 @@ all: $(TARGETS)
 
 # Generate a build rule for each test directory
 define TEST_RULE
-$(BUILD)/$(1): $(wildcard tests/$(1)/*.cpp) $(call impl,$(1))
+$(BUILD)/$(1): $(wildcard tests/$(1)/*.cpp) $(call impl,$(1)) $(EXTRA_SRCS_$(1))
 	@mkdir -p $(BUILD)
 	@printf "$(CYAN)building$(RESET)  $(BOLD)$(1)$(RESET)\n"
 	@$$(CXX) $$(CXXFLAGS) $$^ -o $$@ && printf "$(GREEN)ok$(RESET)        $(BOLD)$(1)$(RESET)\n"

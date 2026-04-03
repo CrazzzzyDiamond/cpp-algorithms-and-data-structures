@@ -34,7 +34,4 @@ void mergeSort(std::vector<int> &arr, int left, int right)
   merge(arr, left, mid, right);
 }
 
-void mergeSort(std::vector<int> &arr)
-{
-  mergeSort(arr, 0, arr.size() - 1);
-}
+void mergeSort(std::vector<int> &arr) { mergeSort(arr, 0, arr.size() - 1); }
